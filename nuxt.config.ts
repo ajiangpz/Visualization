@@ -4,7 +4,13 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
     head: {
-      title: "tenda app"
+      title: "app",
+      script: [
+        {
+          src: "gl-renderer.js",
+          type: "text/javascript"
+        }
+      ]
     }
   },
   pages: true,
@@ -18,6 +24,7 @@ export default defineNuxtConfig({
 
   },
   css: ['assets/styles/tdesign.scss'],
+
   plugins: [{
     src: "plugins/tdesign.ts",
     ssr: true
