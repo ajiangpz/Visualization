@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
+
   app: {
     head: {
       title: "app",
@@ -13,7 +14,9 @@ export default defineNuxtConfig({
       ]
     }
   },
+
   pages: true,
+
   build: {
     loaders: {
       scss: {
@@ -23,10 +26,13 @@ export default defineNuxtConfig({
     transpile: ['tdesign-vue-next']
 
   },
+
   css: ['assets/styles/tdesign.scss'],
 
   plugins: [{
     src: "plugins/tdesign.ts",
     ssr: true
-  }]
+  }],
+
+  modules: ["@nuxtjs/tailwindcss"]
 })
