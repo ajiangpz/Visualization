@@ -2,29 +2,42 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
+
   app: {
     head: {
-      title: "tenda app",
-    },
+      title: "app",
+      script: [
+        {
+          src: "gl-renderer.js",
+          type: "text/javascript"
+        }
+      ]
+    }
   },
+
   pages: true,
+
   build: {
     loaders: {
       scss: {
-        implementation: require("sass"),
-      },
+        implementation: require("sass")
+      }
     },
-    transpile: ["tdesign-vue-next"],
+    transpile: ["tdesign-vue-next"]
   },
+
+  tdesign: {
+    resolveIcons: true
+  },
+
   css: ["assets/styles/tdesign.scss"],
+
   plugins: [
     {
       src: "plugins/tdesign.ts",
-      ssr: true,
-    },
+      ssr: true
+    }
   ],
-  modules: ["@tdesign-vue-next/nuxt"],
-  tdesign: {
-    resolveIcons: true,
-  },
+
+  modules: ["@tdesign-vue-next/nuxt", "@nuxtjs/tailwindcss"]
 });
